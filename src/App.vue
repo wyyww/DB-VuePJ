@@ -1,20 +1,18 @@
 
 
 <script>
+import Navigate from "components/navigate";
+import Primary from "components/primary";
+import Footer from "components/footer";
 
-    import Navigate from 'components/navigate';
-    import Primary from 'components/primary';
-    import Footer from 'components/footer';
-
-    export default{
-        components:{Navigate,Primary,Footer},
-    }
+export default {
+  components: { Navigate, Primary, Footer }
+};
 </script>
 
 <template>
     <div id="app">
         <div class="headbar">
-            模板出来了
             <Navigate></Navigate>
         </div>
         <div class="main">
@@ -29,10 +27,10 @@
 
 <style lang="less" scoped>
 #app {
-    margin: 20px auto;
-    width: 800px;
-    height: 600px;
-    overflow: hidden;
-    border-radius: 3px;
+  // margin: 20px auto;
+  // width: 800px;
+  // height: 600px;
+  overflow: hidden;
+  border-radius: 3px;
 }
 </style>

@@ -3,10 +3,10 @@
 <script>
 import Navigate from "components/navigate";
 import Primary from "components/primary";
-import Footer from "components/footer";
+import Bottom from "components/footer";
 
 export default {
-  components: { Navigate, Primary, Footer }
+  components: { Navigate, Primary, Bottom }
 };
 </script>
 
@@ -19,7 +19,7 @@ export default {
             <Primary></Primary>
         </div>
         <div class="footer">
-            <Footer></Footer>
+            <Bottom></Bottom>
         </div>
     </div>
 </template>

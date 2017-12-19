@@ -47,6 +47,7 @@
 </template>
 
 <script>
+
 </script>
 
 <style lang="less" scoped>
@@ -139,6 +140,7 @@
   .nav-items {
     border: none;
     font-size: 15px;
+    padding: 10px;
     color: #2277aa;
 
     ul li {
@@ -149,9 +151,8 @@
         text-align: center;
         text-decoration: none;
       }
-
-      a:hover{
-          background-color:#2277aa;
+      a:hover {
+        background-color: #2277aa;
       }
     }
   }

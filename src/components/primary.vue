@@ -1,14 +1,14 @@
 <template>
   <div class="content">
       <div class="article">
-          <div class="screening" @click="resourceGet()">
+          <div class="screening" >
             <div class="screening-hd">
               <div class="ui-slide-control">
                 <span class="prev-btn">
-                  <a href="">往前翻</a>
+                  <a href="" class="btn-prev"></a>
                 </span>
                 <span class="next-btn">
-                  <a href="">往后翻</a>
+                  <a href="" class="btn-next"></a>
                 </span>
               </div>
               <div class="slide-tip">
@@ -18,15 +18,23 @@
               </div>
               <h2>
                 正在热映
-                <span><a href="#" >全部正在热映>></a></span>
-                <span><a href="#" >即将上映>></a></span>
+                <span><a @click="moreMovie()" href="#" >全部正在热映》</a></span>
+                <span><a @click="mv_l_w()" href="#" >即将上映》</a></span>
               </h2>
             </div>
             <div class="screening-bd">
-              美丽的图片
+                <ul class="ui-slide-content">
+                  <li v-for="item in items" :key="item.id">
+                    {{item.title}}
+                  </li>
+                </ul>
             </div>
           </div>
       </div>
+
+
+
+
       <div class="slider">
         电影口碑
       </div>
@@ -36,21 +44,25 @@
 export default {
   name: "primary",
   data() {
-    return {};
+    return {
+      items: []
+    };
   },
-  methods: {
-    resourceGet() {
-      var that = this;
-      that.$http.jsonp("https://api.douban.com/v2/movie/in_theaters").then(
-        response => {
-          console.log(response);
-        },
-        response => {
-          console.log("error" + response);
-        }
-      );
-    }
-  }
+  created: function() {
+    var that = this;
+    that.$http.jsonp("https://api.douban.com/v2/movie/in_theaters").then(
+      response => {
+        // console.log(response.body.subjects);
+        that.items = response.body.subjects;
+      },
+      response => {
+        console.log("error" + response);
+      }
+    );
+  },
+  computed: {
+  },
+  methods: {}
 };
 </script>
 
@@ -61,30 +73,79 @@ export default {
   background-color: #fff;
 
   .article {
-    background-color: #808080;
+    // background-color: #808080;
     width: 60%;
     float: left;
     margin-right: 8%;
 
     .screening {
       margin-bottom: 36px;
+      .screening-hd {
+        h2 {
+          font-size: 16px;
+          color: #111;
+          font-weight: normal;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #eaeaea;
+          margin-bottom: 18px;
 
-      h2 {
-        font-size: 16px;
-        color: #111;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #eaeaea;
-        margin-bottom: 18px;
+          span {
+            margin-left: 10px;
+            font-size: 13px;
+
+            a:visited {
+              color: #666699;
+              text-decoration: none;
+            }
+
+            a:link {
+              color: #37a;
+              text-decoration: none;
+            }
+          }
+        }
+
+        .ui-slide-control {
+          float: right;
+          margin: 5px 0 0 15px;
+
+          .btn-prev {
+            display: block;
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            cursor: pointer;
+            background: url("../../static/images/switch-to-left.png") no-repeat;
+          }
+
+          .btn-next {
+            display: block;
+            float: left;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            cursor: pointer;
+            background: url("../../static/images/switch-to-right.png") no-repeat;
+          }
+        }
+        .slide-tip {
+          float: right;
+          line-height: 30px;
+          color: #666;
+          font-size: 12px;
+        }
       }
 
-      .ui-slide-control {
-        float: right;
-        margin: 5px 0 0 15px;
-      }
-      .slide-tip {
-        float: right;
-        line-height: 30px;
-        color: #666;
+      .screening-bd {
+        overflow: hidden;
+        position: relative;
+        height: 270px;
+
+        .ui-slide-content {
+          position: absolute;
+          white-space: nowrap;
+        }
       }
     }
   }

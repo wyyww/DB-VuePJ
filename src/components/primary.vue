@@ -23,11 +23,32 @@
               </h2>
             </div>
             <div class="screening-bd">
+
                 <ul class="ui-slide-content">
-                  <li v-for="item in items" :key="item.id">
-                    {{item.title}}
+                  <li class="ui-slide-item" v-for="item in items" :key="item.id">
+                    <ul class>
+                      <li class="poster">
+                        <a href="#"  >
+                            <!-- <img src={{item.images.small}} /> -->
+                        </a>
+                      </li>
+                      <li class="title">
+                        <a href="#" >  {{item.title}}</a>
+                       
+                      </li>
+                      <li class="rating">
+                        <span class="rating-star"></span>
+                        <span class="subject-rate">{{item.rating.average}}</span>
+                      </li>
+                      <li class="ticket_btn">
+                        <span>
+                          <a href="#" >选座购票</a>
+                        </span>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
+
             </div>
           </div>
       </div>
@@ -52,7 +73,7 @@ export default {
     var that = this;
     that.$http.jsonp("https://api.douban.com/v2/movie/in_theaters").then(
       response => {
-        // console.log(response.body.subjects);
+        console.log(response.body.subjects);
         that.items = response.body.subjects;
       },
       response => {
@@ -60,8 +81,7 @@ export default {
       }
     );
   },
-  computed: {
-  },
+  computed: {},
   methods: {}
 };
 </script>
@@ -145,6 +165,20 @@ export default {
         .ui-slide-content {
           position: absolute;
           white-space: nowrap;
+
+          .ui-slide-item {
+            font-size: 12px;
+            text-align: center;
+            margin-right: 25px;
+            width: 115px;
+            height: 270px;
+            overflow: hidden;
+
+            display: inline-block;
+            vertical-align: top;
+            letter-spacing: normal;
+            word-spacing: normal;
+          }
         }
       }
     }

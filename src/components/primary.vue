@@ -29,7 +29,7 @@
                     <ul class>
                       <li class="poster">
                         <a href="#"  >
-                            <!-- <img src={{item.images.small}} /> -->
+                            <img :src="item.images.medium" />
                         </a>
                       </li>
                       <li class="title">
@@ -93,7 +93,7 @@ export default {
   background-color: #fff;
 
   .article {
-    // background-color: #808080;
+    background-color: #808080;
     width: 60%;
     float: left;
     margin-right: 8%;
@@ -178,6 +178,94 @@ export default {
             vertical-align: top;
             letter-spacing: normal;
             word-spacing: normal;
+
+            img {
+              width: 128px;
+            }
+
+            .poster {
+              height: 161px;
+              overflow: hidden;
+              margin-bottom: 12px;
+
+              a img {
+                border-width: 0;
+                vertical-align: middle;
+              }
+              a:visited {
+                color: #666699;
+                text-decoration: none;
+              }
+              a:link {
+                color: #37a;
+                text-decoration: none;
+              }
+            }
+
+            .title {
+              letter-spacing: -0.31em;
+              font-size: 14px;
+              white-space: nowrap;
+              height: 22px;
+              overflow: hidden;
+
+              a:link {
+                color: #333;
+              }
+
+              a {
+                display: inline-block;
+                vertical-align: top;
+                letter-spacing: normal;
+                word-spacing: normal;
+                height: 24px;
+                line-height: 24px;
+              }
+            }
+
+            .rating {
+              display: inline-block;
+              zoom: 1;
+              margin: 4px auto 2px;
+              height: 19px;
+
+              span {
+                float: left;
+              }
+              .rating-star {
+                margin: 3px 3px 0 0;
+                width: 55px;
+              }
+
+              .subject-rate {
+                color: #e09015;
+                font-size: 12px;
+                margin-left: 2px;
+              }
+            }
+
+            .ticket_btn span {
+              display: block;
+              margin: 0 auto;
+              text-align: center;
+              width: 90px;
+              height: 24px;
+              line-height: 24px;
+              background-color: #268dcd;
+              color: #fff;
+              border-radius: 2px;
+            }
+            .ticket_btn a:link,
+            .ticket_btn a:visited,
+            .ticket_btn a:hover,
+            .ticket_btn a:active {
+              background: none;
+              color: #fff;
+              text-decoration:none;
+            }
+
+
+
           }
         }
       }

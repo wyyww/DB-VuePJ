@@ -23,7 +23,6 @@
               </h2>
             </div>
             <div class="screening-bd">
-
                 <ul class="ui-slide-content">
                   <li class="ui-slide-item" v-for="item in items" :key="item.id">
                     <ul class>
@@ -34,7 +33,6 @@
                       </li>
                       <li class="title">
                         <a href="#" >  {{item.title}}</a>
-                       
                       </li>
                       <li class="rating">
                         <span class="rating-star"></span>
@@ -49,6 +47,11 @@
                   </li>
                 </ul>
 
+            </div>
+
+
+            <div>
+              <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/52ff6af9463cfd7.jpg" />
             </div>
           </div>
       </div>
@@ -80,6 +83,15 @@ export default {
         console.log("error" + response);
       }
     );
+
+    // that.$http.get("https://img3.doubanio.com/view/dale-online/dale_ad/public/52ff6af9463cfd7.jpg").then(
+    //   response=>{
+    //     console.log(response);
+    //   },
+    //   response=>{
+    //     console.log("error" + response);
+    //   }
+    // )
   },
   computed: {},
   methods: {}

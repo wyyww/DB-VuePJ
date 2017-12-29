@@ -46,21 +46,28 @@
                     </ul>
                   </li>
                 </ul>
-
-            </div>
-
-
-            <div>
-              <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/52ff6af9463cfd7.jpg" />
-            </div>
+            </div> 
           </div>
+
+           <div class="movie_home_left_bottom">
+             <a href="#" class="hr_link_advert">
+                <img src="https://img3.doubanio.com/view/dale-online/dale_ad/public/52ff6af9463cfd7.jpg" />
+             </a>
+            </div>
       </div>
 
 
 
 
       <div class="slider">
-        电影口碑
+        <div class="rating_answer">
+          <ul>
+            <li>
+               <a href="https://blog.douban.com/douban/2015/12/18/3060/" target="_blank">豆瓣电影评分八问</a>
+            </li>
+          </ul>
+         
+        </div>
       </div>
   </div>
 </template>
@@ -101,7 +108,7 @@ export default {
 <style lang="less" scoped>
 .content {
   position: relative;
-  padding: 35px 15%;
+  padding: 35px 13%;
   background-color: #fff;
 
   .article {
@@ -273,20 +280,50 @@ export default {
             .ticket_btn a:active {
               background: none;
               color: #fff;
-              text-decoration:none;
+              text-decoration: none;
             }
-
-
-
           }
         }
       }
     }
+
+    .movie_home_left_bottom {
+      margin-bottom: 20px;
+    }
   }
 
   .slider {
-    background-color: #f00;
+    // background-color: #808080;
     overflow: hidden;
+
+    .rating_answer {
+      margin: 0 0 20px;
+      padding: 12px 0 12px 18px;
+      line-height: 1.5;
+      background: #f2f7f6;
+      border-radius: 4px;
+      width: 282px;
+
+      ul{
+        font-size: 14px;
+        color:#cedcd9;
+
+        li{
+          list-style: none;
+          font-size:13px;
+
+          a:visited{
+            color:#669;
+            text-decoration:none;
+          }
+
+          a:link{
+            color:#37a;
+            text-decoration:none;
+          }
+        }
+      }
+    }
   }
 }
 </style>
